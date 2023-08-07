@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>The Warm Up</title>
+    </head>
+
+    <body>
+            <h1>Input Text</h1>
+            <textarea id="inputText" type="text" rows="22" cols="60"></textarea><br>
+            <button onclick="result()">Click to see result</button>
+
+            <button id="color" onclick="color()">Click to change color</button>
+            <p>
+                Letter Count:
+                <span id="show">0</span>
+            </p>
+            <p>
+                Word Count:
+                <span id="show1">0</span>
+            </p>
+            <p>
+                Sentence Count:
+                <span id="show2">0</span>
+            </p>
+        <script>
+            function result() {
+                let inputText = document.getElementById('inputText').value
+                for(let i = 0; i < inputText.length; i++){
+                    document.getElementById("show").innerHTML= inputText.length
+                }
+
+                for(let y = 0; y < inputText.length; y++){
+                    let textSplit= inputText.split(" ")
+                    document.getElementById("show1").innerHTML= textSplit.length
+                }
+
+                // for(let j=0; j < inputText.length; j++){
+                    let sentenceCount= inputText.split(".")
+                    console.log("================================");
+                    console.log(sentenceCount.filter((e)=>e.length > 0),"test\n",sentenceCount);
+                    console.log("================================");
+
+                    document.getElementById("show2").innerHTML= sentenceCount.filter((e)=>e.trim().length > 0).length
+                // }
+            }
+
+                function color(){
+
+                    let random = Math.floor(Math.random()*16777215).toString(16);
+                    document.body.style.background = "#" +random
+                }
+        </script>
+    </body>
+
+</html>
